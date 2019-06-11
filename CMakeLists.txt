@@ -1,12 +1,17 @@
 #
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR)
 #
+include (AddWin32DLL)
 PROJECT(libarchive C)
 #
 SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build/cmake")
 if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${libarchive_BINARY_DIR}/bin)
 endif()
+#
+ADD_WIN32_DLL (libarchive::DLL
+  ${libarchive_BINARY_DIR}/bin/archive.dll
+)
 #
 # Set the Build type for make based generators.
 # You can choose following types:
