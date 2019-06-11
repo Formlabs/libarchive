@@ -9,9 +9,11 @@ if(NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${libarchive_BINARY_DIR}/bin)
 endif()
 #
-ADD_WIN32_DLL (libarchive::DLL
-  ${libarchive_BINARY_DIR}/bin/archive.dll
-)
+if (PP_OS_WIN32)
+  ADD_WIN32_DLL (libarchive::DLL
+    ${libarchive_BINARY_DIR}/bin/archive.dll
+  )
+endif ()
 #
 # Set the Build type for make based generators.
 # You can choose following types:
