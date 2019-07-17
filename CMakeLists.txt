@@ -14,6 +14,12 @@ if (PP_OS_WIN32)
     ${libarchive_BINARY_DIR}/bin/archive.dll
   )
 endif ()
+
+set_target_properties (PreForm
+    PROPERTIES
+        LIBARCHIVE_SO_PATH
+        ${libarchive_BINARY_DIR}/libarchive/libarchive.so.16
+)
 #
 # Set the Build type for make based generators.
 # You can choose following types:
