@@ -402,7 +402,9 @@ SET(ADDITIONAL_LIBS "")
 # Find ZLIB
 #
 IF(ENABLE_ZLIB)
-  FIND_PACKAGE(ZLIB)
+  SET(ZLIB_FOUND TRUE)
+  SET(ZLIB_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/vendor/zlib/zlib-1.2.8")
+  SET(ZLIB_LIBRARIES "${CMAKE_BINARY_DIR}/vendor/zlib/zlib-1.2.8/libz.a")
 ELSE()
   SET(ZLIB_FOUND FALSE) # Override cached value
 ENDIF()
