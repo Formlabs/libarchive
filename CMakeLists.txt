@@ -403,7 +403,8 @@ SET(ADDITIONAL_LIBS "")
 #
 IF(ENABLE_ZLIB)
   set(ZLIB_FOUND TRUE)
-  set(ZLIB_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/vendor/zlib-1.2.8")
+  set(ZLIB_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/vendor/zlib/zlib-1.2.8")
+  list(APPEND ZLIB_INCLUDE_DIR "${CMAKE_BINARY_DIR}/vendor/zlib/zlib-1.2.8") # for zconf.h
   set(ZLIB_LIBRARIES zlibstatic)
   mark_as_advanced(ZLIB_FOUND ZLIB_INCLUDE_DIR ZLIB_LIBRARIES)
 ELSE()
