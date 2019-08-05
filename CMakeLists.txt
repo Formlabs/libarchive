@@ -411,11 +411,6 @@ ELSE()
   SET(ZLIB_FOUND FALSE) # Override cached value
 ENDIF()
 IF(ZLIB_FOUND)
-
-  message("ZLIB " ${ZLIB_FOUND})
-  message("ZLIB " ${ZLIB_INCLUDE_DIR})
-  message("ZLIB " ${ZLIB_LIBRARIES})
-
   SET(HAVE_LIBZ 1)
   SET(HAVE_ZLIB_H 1)
   INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
