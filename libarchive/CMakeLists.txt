@@ -249,6 +249,11 @@ IF(NOT WIN32 OR CYGWIN)
   SET_TARGET_PROPERTIES(archive_static PROPERTIES OUTPUT_NAME archive)
 ENDIF(NOT WIN32 OR CYGWIN)
 
+if(WIN32)
+  set_target_properties(archive PROPERTIES COMPILE_FLAGS "/wd4267")
+  set_target_properties(archive_static PROPERTIES COMPILE_FLAGS "/wd4267")
+endif(WIN32)
+
 IF(ENABLE_INSTALL)
   # How to install the libraries
   INSTALL(TARGETS archive archive_static
