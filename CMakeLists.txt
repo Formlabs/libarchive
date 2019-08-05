@@ -402,15 +402,19 @@ SET(ADDITIONAL_LIBS "")
 # Find ZLIB
 #
 IF(ENABLE_ZLIB)
-  SET(ZLIB_FOUND TRUE)
-  SET(ZLIB_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/vendor/zlib/zlib-1.2.8")
-  list(APPEND ZLIB_INCLUDE_DIR "${CMAKE_BINARY_DIR}/vendor/zlib/zlib-1.2.8")
-  link_directories("${CMAKE_BINARY_DIR}/vendor/zlib/zlib-1.2.8/")
-  SET(ZLIB_LIBRARIES z)
+  set(ZLIB_FOUND TRUE)
+  set(ZLIB_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/vendor/zlib-1.2.8")
+  set(ZLIB_LIBRARIES zlibstatic)
+  mark_as_advanced(ZLIB_FOUND ZLIB_INCLUDE_DIR ZLIB_LIBRARIES)
 ELSE()
   SET(ZLIB_FOUND FALSE) # Override cached value
 ENDIF()
 IF(ZLIB_FOUND)
+
+  message("ZLIB " ${ZLIB_FOUND})
+  message("ZLIB " ${ZLIB_INCLUDE_DIR})
+  message("ZLIB " ${ZLIB_LIBRARIES})
+
   SET(HAVE_LIBZ 1)
   SET(HAVE_ZLIB_H 1)
   INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIR})
